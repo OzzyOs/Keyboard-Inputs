@@ -2,8 +2,6 @@ import * as PIXI from 'pixi.js'
 import { Sprite } from 'pixi.js'
 
 
-
-
 export class Fish extends PIXI.Sprite {
     speed = 10
     
