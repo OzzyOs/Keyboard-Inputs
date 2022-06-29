@@ -6,9 +6,10 @@ import bckGround from "./images/water.png"
 // import fishTwo from "./images/fish.png"
 
 
-class Game {
+export class Game {
     pixi : PIXI.Application
     loader : PIXI.Loader
+    fish : Fish
 
 
     constructor(){
@@ -25,7 +26,6 @@ class Game {
     }
             
             loadCompleted() {
-                this.fishes=[];
                 let background = new PIXI.Sprite(this.loader.resources["waterTexture"].texture!)
                 this.pixi.stage.addChild(background)
                 // for(let i=0; i<10; i++) {
@@ -33,13 +33,10 @@ class Game {
                 //     this.fishes.push(fish)
                 //     this.pixi.stage.addChild(fish)
                 // }
-                
-              
-
                 let fish = new Fish(this.loader.resources["fishTexture"].texture!)
-      
                 this.pixi.stage.addChild(fish)
             }
+                
 
         
 

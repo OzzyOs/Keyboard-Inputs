@@ -515,13 +515,16 @@ function hmrAcceptRun(bundle, id) {
 
 },{}],"edeGs":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+// import fishTwo from "./images/fish.png"
+parcelHelpers.export(exports, "Game", ()=>Game
+);
 var _pixiJs = require("pixi.js");
 var _fish = require("./Fish");
 var _fishPng = require("./images/fish.png");
 var _fishPngDefault = parcelHelpers.interopDefault(_fishPng);
 var _waterJpg = require("./images/water.jpg");
 var _waterJpgDefault = parcelHelpers.interopDefault(_waterJpg);
-// import fishTwo from "./images/fish.png"
 class Game {
     constructor(){
         this.pixi = new _pixiJs.Application({
@@ -535,7 +538,6 @@ class Game {
         );
     }
     loadCompleted() {
-        this.fishes = [];
         let background = new _pixiJs.Sprite(this.loader.resources["waterTexture"].texture);
         this.pixi.stage.addChild(background);
         // for(let i=0; i<10; i++) {
@@ -549,7 +551,7 @@ class Game {
 }
 let g = new Game();
 
-},{"pixi.js":"dsYej","./Fish":"eMzUh","./images/fish.png":"3tLwD","./images/water.jpg":"jj9Eg","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dsYej":[function(require,module,exports) {
+},{"pixi.js":"dsYej","./images/fish.png":"3tLwD","./images/water.jpg":"jj9Eg","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./Fish":"eMzUh"}],"dsYej":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "utils", ()=>_utils
@@ -37046,24 +37048,7 @@ function __extends(d, b) {
     return AnimatedSprite1;
 }(_sprite.Sprite);
 
-},{"@pixi/core":"7PEF8","@pixi/sprite":"9mbxh","@pixi/ticker":"8ekG7","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eMzUh":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "Fish", ()=>Fish
-);
-var _pixiJs = require("pixi.js");
-class Fish extends _pixiJs.Sprite {
-    constructor(texture){
-        super(texture);
-        this.anchor.set(0.25);
-        this.scale.set(1);
-        this.tint = Math.random() * 65535;
-        this.y = Math.random() * 500;
-        this.x = Math.random() * 400;
-    }
-}
-
-},{"pixi.js":"dsYej","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3tLwD":[function(require,module,exports) {
+},{"@pixi/core":"7PEF8","@pixi/sprite":"9mbxh","@pixi/ticker":"8ekG7","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3tLwD":[function(require,module,exports) {
 module.exports = require('./helpers/bundle-url').getBundleURL('emE5o') + "fish.510b053c.png" + "?" + Date.now();
 
 },{"./helpers/bundle-url":"lgJ39"}],"lgJ39":[function(require,module,exports) {
@@ -37103,6 +37088,71 @@ exports.getOrigin = getOrigin;
 },{}],"jj9Eg":[function(require,module,exports) {
 module.exports = require('./helpers/bundle-url').getBundleURL('emE5o') + "water.59ff4e4f.jpg" + "?" + Date.now();
 
-},{"./helpers/bundle-url":"lgJ39"}]},["fpRtI","edeGs"], "edeGs", "parcelRequirea0e5")
+},{"./helpers/bundle-url":"lgJ39"}],"eMzUh":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "Fish", ()=>Fish
+);
+var _pixiJs = require("pixi.js");
+class Fish extends _pixiJs.Sprite {
+    speed = 10;
+    constructor(texture){
+        super(texture);
+        this.anchor.set(0.25);
+        this.scale.set(1);
+        this.y = 250;
+        this.x = 350;
+        window.addEventListener("keydown", (e)=>this.onKeyDown(e)
+        );
+        window.addEventListener("keyup", (e)=>this.onKeyUp(e)
+        );
+    }
+    update() {
+        this.x += this.speed;
+        this.y += this.speed;
+    }
+    onKeyDown(e) {
+        switch(e.key.toUpperCase()){
+            case "A":
+            case "ARROWLEFT":
+                this.x -= this.speed;
+                this.scale.set(1, 1);
+                break;
+            case "D":
+            case "ARROWRIGHT":
+                this.x += this.speed;
+                this.scale.set(-1, 1);
+                break;
+            case "W":
+            case "ARROWUP":
+                this.y -= this.speed;
+                break;
+            case "S":
+            case "ARROWDOWN":
+                this.y += this.speed;
+                break;
+        }
+    }
+    onKeyUp(e) {
+        switch(e.key.toUpperCase()){
+            case " ":
+                break;
+            case "A":
+            case "D":
+            case "ARROWLEFT":
+            case "ARROWRIGHT":
+                this.xspeed = 0;
+                break;
+            case "W":
+            case "S":
+            case "ARROWUP":
+            case "ARROWDOWN":
+                this.yspeed = 0;
+                break;
+        }
+    }
+}
+
+},{"pixi.js":"dsYej","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["fpRtI","edeGs"], "edeGs", "parcelRequirea0e5")
 
 //# sourceMappingURL=index.901f85c2.js.map
