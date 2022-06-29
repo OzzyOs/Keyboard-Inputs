@@ -2,7 +2,6 @@ import * as PIXI from 'pixi.js'
 import { Fish } from "./Fish"
 import fishImage from "./images/fish.png"
 import waterImage from "./images/water.jpg"
-import bckGround from "./images/water.png"
 // import fishTwo from "./images/fish.png"
 
 
@@ -28,11 +27,7 @@ export class Game {
             loadCompleted() {
                 let background = new PIXI.Sprite(this.loader.resources["waterTexture"].texture!)
                 this.pixi.stage.addChild(background)
-                // for(let i=0; i<10; i++) {
-                //     let fish = new Fish(this.loader.resources["fishTexture"].texture!)
-                //     this.fishes.push(fish)
-                //     this.pixi.stage.addChild(fish)
-                // }
+              
                 let fish = new Fish(this.loader.resources["fishTexture"].texture!)
                 this.pixi.stage.addChild(fish)
             }

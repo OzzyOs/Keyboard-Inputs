@@ -540,11 +540,6 @@ class Game {
     loadCompleted() {
         let background = new _pixiJs.Sprite(this.loader.resources["waterTexture"].texture);
         this.pixi.stage.addChild(background);
-        // for(let i=0; i<10; i++) {
-        //     let fish = new Fish(this.loader.resources["fishTexture"].texture!)
-        //     this.fishes.push(fish)
-        //     this.pixi.stage.addChild(fish)
-        // }
         let fish = new _fish.Fish(this.loader.resources["fishTexture"].texture);
         this.pixi.stage.addChild(fish);
     }
@@ -37104,13 +37099,11 @@ class Fish extends _pixiJs.Sprite {
         this.x = 350;
         window.addEventListener("keydown", (e)=>this.onKeyDown(e)
         );
-        window.addEventListener("keyup", (e)=>this.onKeyUp(e)
-        );
     }
-    update() {
-        this.x += this.speed;
-        this.y += this.speed;
-    }
+    // update() {
+    //     this.x += this.speed
+    //     this.y += this.speed
+    // }
     onKeyDown(e) {
         switch(e.key.toUpperCase()){
             case "A":
@@ -37130,24 +37123,6 @@ class Fish extends _pixiJs.Sprite {
             case "S":
             case "ARROWDOWN":
                 this.y += this.speed;
-                break;
-        }
-    }
-    onKeyUp(e) {
-        switch(e.key.toUpperCase()){
-            case " ":
-                break;
-            case "A":
-            case "D":
-            case "ARROWLEFT":
-            case "ARROWRIGHT":
-                this.xspeed = 0;
-                break;
-            case "W":
-            case "S":
-            case "ARROWUP":
-            case "ARROWDOWN":
-                this.yspeed = 0;
                 break;
         }
     }
