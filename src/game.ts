@@ -9,7 +9,6 @@ import bckGround from "./images/water.png"
 class Game {
     pixi : PIXI.Application
     loader : PIXI.Loader
-    fishes: Fish[]
 
 
     constructor(){
@@ -25,26 +24,15 @@ class Game {
     
     }
             
-            // startGame() {
-                
-            //     for(let i=0; i<10; i++) {
-            //         let fish = new PIXI.sprite(this.loader.resources["fishTexture"].texture!)
-            //         this.pixi.stage.addChild(fish)
-            //         this.fishes.push(fish)
-            //     }
-                
-            //     this.pixi.ticker.add(() => this.update())
-            // }
-            
             loadCompleted() {
                 this.fishes=[];
                 let background = new PIXI.Sprite(this.loader.resources["waterTexture"].texture!)
                 this.pixi.stage.addChild(background)
-                for(let i=0; i<10; i++) {
-                    let fish = new Fish(this.loader.resources["fishTexture"].texture!)
-                    this.fishes.push(fish)
-                    this.pixi.stage.addChild(fish)
-                }
+                // for(let i=0; i<10; i++) {
+                //     let fish = new Fish(this.loader.resources["fishTexture"].texture!)
+                //     this.fishes.push(fish)
+                //     this.pixi.stage.addChild(fish)
+                // }
                 
               
 
@@ -59,16 +47,3 @@ class Game {
 
 let g = new Game()
 
-
-//
-// STAP 1 - maak een pixi canvas
-//
-
-
-//
-// STAP 2 - preload alle afbeeldingen
-//
-
-//
-// STAP 3 - maak een sprite als de afbeeldingen zijn geladen
-//

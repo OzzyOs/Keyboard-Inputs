@@ -534,37 +534,20 @@ class Game {
         this.loader.load(()=>this.loadCompleted()
         );
     }
-    // startGame() {
-    //     for(let i=0; i<10; i++) {
-    //         let fish = new PIXI.sprite(this.loader.resources["fishTexture"].texture!)
-    //         this.pixi.stage.addChild(fish)
-    //         this.fishes.push(fish)
-    //     }
-    //     this.pixi.ticker.add(() => this.update())
-    // }
     loadCompleted() {
         this.fishes = [];
         let background = new _pixiJs.Sprite(this.loader.resources["waterTexture"].texture);
         this.pixi.stage.addChild(background);
-        for(let i = 0; i < 10; i++){
-            let fish = new _fish.Fish(this.loader.resources["fishTexture"].texture);
-            this.fishes.push(fish);
-            this.pixi.stage.addChild(fish);
-        }
+        // for(let i=0; i<10; i++) {
+        //     let fish = new Fish(this.loader.resources["fishTexture"].texture!)
+        //     this.fishes.push(fish)
+        //     this.pixi.stage.addChild(fish)
+        // }
         let fish = new _fish.Fish(this.loader.resources["fishTexture"].texture);
         this.pixi.stage.addChild(fish);
     }
 }
-let g = new Game() //
- // STAP 1 - maak een pixi canvas
- //
- //
- // STAP 2 - preload alle afbeeldingen
- //
- //
- // STAP 3 - maak een sprite als de afbeeldingen zijn geladen
- //
-;
+let g = new Game();
 
 },{"pixi.js":"dsYej","./Fish":"eMzUh","./images/fish.png":"3tLwD","./images/water.jpg":"jj9Eg","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dsYej":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
