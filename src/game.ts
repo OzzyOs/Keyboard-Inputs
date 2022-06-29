@@ -1,7 +1,6 @@
 import * as PIXI from 'pixi.js'
 import { Fish } from "./Fish"
 import fishImage from "./images/fish.png"
-import bubbleImage from "./images/bubble.png"
 import waterImage from "./images/water.jpg"
 import bckGround from "./images/water.png"
 // import fishTwo from "./images/fish.png"
@@ -19,7 +18,6 @@ class Game {
         
         this.loader = new PIXI.Loader()
         this.loader.add('fishTexture', fishImage)
-                   .add('bubbleTexture', bubbleImage)
                    .add('waterTexture', waterImage)
         this.loader.load(() => this.loadCompleted())
            
